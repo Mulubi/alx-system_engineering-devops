@@ -7,3 +7,4 @@ file_line { 'Change the main private key':
 file_line { 'No Authenticate with passowrd':
   path => '/etc/ssh/ssh_config',
   line => '    PasswordAuthentication no',
+}
