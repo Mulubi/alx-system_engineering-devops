@@ -1,6 +1,5 @@
-Host 63790-web-01
+Host *
     Hostname 52.91.126.187
     User ubuntu
     PasswordAuthentication no
     IdentityFile ~/.ssh/school
-    Port 22
