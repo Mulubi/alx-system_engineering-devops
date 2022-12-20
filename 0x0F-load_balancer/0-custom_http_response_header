@@ -3,13 +3,9 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-# open Nginx configuration file
-sudo vim /etc/nginx/nginx.conf
-
 # add the following lines to the http block
-server_tokens off;
-add_header X-Served-By $hostname;
+sed -i 'http {/a \\\ add_header X-Served-By $hostname;' /etc/nginx/nginx.conf
 
 # Save the changes and exit
 # Restart the Nginx service to apply the changes
-sudo service nginx restart
+sudo nginx -s reload
