@@ -1,11 +1,5 @@
 #!/usr/bin/env/ bash
 # Script that makes a web server to run Nginx as the nginx user and listens on port 8080
-# Create the "nginx" user and group
-groupadd nginx
-useradd -r -g nginx nginx
-
-# Configure nginx to run as the "nginx" user and group
-sed -i 's/user  nobody;/user  nginx nginx;/g' /etc/nginx/nginx.conf
 
 # Configure nginx to listen on all active IP addresses on port 8080
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
@@ -15,9 +9,6 @@ chmod 644 /etc/nginx/nginx.conf
 
 # Allow incoming traffic on port 8080
 iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
-
-# Save the iptables rules
-iptables-save > /etc/iptables.conf
 
 # Kill apache2
 pkill apache2
