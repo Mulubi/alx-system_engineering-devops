@@ -1,5 +1,5 @@
 #!/usr/bin/env/ bash
-
+# Script that makes a web server to run Nginx as the nginx user and listens on port 8080
 # Create the "nginx" user and group
 groupadd nginx
 useradd -r -g nginx nginx
