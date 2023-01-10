@@ -8,10 +8,10 @@ useradd -r -g nginx nginx
 sed -i 's/user  nobody;/user  nginx nginx;/g' /etc/nginx/nginx.conf
 
 # Configure nginx to listen on all active IP addresses on port 8080
-sed -i 's/listen       80;/listen       0.0.0.0:8080;/g' /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 
 # Change the ownership of the nginx directories and files to the "nginx" user and group
-chown -R nginx:nginx /usr/local/nginx
+chmod 644 /etc/nginx/nginx.conf
 
 # Allow incoming traffic on port 8080
 iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
