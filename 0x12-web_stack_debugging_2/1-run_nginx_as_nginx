@@ -1,13 +1,7 @@
-#!/usr/bin/env/ bash
-# Script that makes a web server to run Nginx
-# as the nginx user and listens on port 8080
+#!/usr/bin/env bash
+# Fixes a web server to run Nginx as the nginx user listening on port 8080.
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
-# Configure nginx to listen on all active IP addresses on port 8080
 sed -i "s/80/8080/g" /etc/nginx/sites-available/default
-# Change the ownership of the nginx directories and
-# files to the "nginx" user and group
 chmod 644 /etc/nginx/nginx.conf
-# Kill apache2
 pkill apache2
-# Restart the nginx server
 sudo -u nginx service nginx start
