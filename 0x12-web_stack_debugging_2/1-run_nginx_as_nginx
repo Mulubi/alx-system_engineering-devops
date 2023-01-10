@@ -19,6 +19,9 @@ iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 # Save the iptables rules
 iptables-save > /etc/iptables.conf
 
+# Kill apache2
+pkill apache2
+
 # Restart the nginx server
-systemctl restart nginx
+sudo -u nginx service nginx start
 
