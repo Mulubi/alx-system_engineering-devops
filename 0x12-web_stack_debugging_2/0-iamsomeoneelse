@@ -8,8 +8,5 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-# Store the username in the first argument
-username=$1
-
 # Run the whoami command as the user provided
-sudo -u $username whoami
+sudo -u "$1" whoami
